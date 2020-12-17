@@ -27,37 +27,14 @@ class ActeurManager extends AbstractManager{
 
         return self::getOneOrNullResult(
             self::select($sql, ["id" => $id], false),
-
              // select($sql, $params = null, $multiple = true
             self::$className
         );
     }
     
     public function addActeur($prenomActeur, $nomActeur, $dateNaissance, $sexe){
-        $sql = "INSERT INTO acteur (nomActeur)
-                    VALUES (:nomActeur)";
-        return self::create($sql, ["nomActeur" => $nomActeur]);
+        $sql = "INSERT INTO acteur (prenomActeur, nomActeur, dateNaissance, sexe)
+                    VALUES (:prenomActeur, :nomActeur, :dateNaissance, :sexe)";
+        return self::create($sql, ["prenomActeur"=>$prenomActeur, "nomActeur"=>$nomActeur, "dateNaissance"=>$dateNaissance, "sexe"=>$sexe]);
     }
-
-    // public function addActeur() {
-    //     if(!empty($_POST)){
-
-    //         $prenomacteur = filter_input(INPUT_POST, "prenomacteur", FILTER_SANITIZE_STRING);
-    //         $nomacteur = filter_input(INPUT_POST, "nomacteur", FILTER_SANITIZE_STRING);
-    //         $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_STRING);
-    //         $datenaissance = filter_input(INPUT_POST, "datenaissance", FILTER_SANITIZE_STRING);
-
-
-    //         if($nomacteur && $prenomacteur && $sexe && $datenaissance){
-    //             $manActeur = new ActeurManager();
-    //             $manActeur->addActeur($nomacteur, $prenomacteur, $sexe, $datenaissance);
-
-    //             Session::addFlash("success", "Nouveau acteur ajouté avec succès !");
-    //             Router::redirectTo("acteur", "allActeur");
-    //         } else {
-    //             Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
-    //         }
-    //         Router::redirectTo("home");
-    //     }     
-    // }
 }

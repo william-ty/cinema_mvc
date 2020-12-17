@@ -75,9 +75,9 @@
                 return $this;
         }
 
-        // public function __toString(){
-        //     return $this->libelleGenre;
-        // }
+        public function __toString(){
+            return $this->acteur." ".$this->film." ".$this->role;
+        }
     }
 
 

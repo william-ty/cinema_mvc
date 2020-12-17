@@ -31,8 +31,8 @@ class FilmManager extends AbstractManager{
         );
     }
 
-    // récupère la liste salariés par entreprise
-    public function findRealisateur($id){
+    // récupère la liste films par genre
+    public function findFilmsByGenre($id){
         $sql = "SELECT *
                 FROM film
                 WHERE realisateur_id = :id";

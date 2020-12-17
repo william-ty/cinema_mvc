@@ -1,6 +1,6 @@
 <?php
     $genre = $data["genre"];
-    
+    $films = $data["films"];
 ?>
 
 <a class="linkbutton proceed" href="index.php?ctrl=genre&method=allGenres">Retour à la liste des genres</a>
@@ -15,7 +15,16 @@
             </tr>
         </thead>
         <tbody>
-           <tr><td><?=$film->getTitre()?></td></tr>;
+            <?php
+                foreach($films as $film){?>
+                    <tr>
+                        <td>
+                            <?=$film->getTitre();?>
+                        </td>
+                    </tr>
+
+                <?php }
+            ?>
         </tbody>
     </table>
 </p>

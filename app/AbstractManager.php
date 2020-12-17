@@ -48,6 +48,8 @@
         }
 
         protected static function create($sql, $params){
+            //$sql = "la requete en question"
+            //$params = "colonne => donnée"
             $stmt = self::$connection->prepare($sql);
             $stmt->execute($params);
             return self::$connection->lastInsertId();

@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Model\Manager\GenreManager;
+use Model\Manager\FilmManager;
 
 
 class GenreController{
@@ -24,14 +25,15 @@ class GenreController{
     public function detailGenre($id){
 
         $manGenre = new GenreManager();
-
+        $manFilm = new FilmManager();
         $genre = $manGenre->findOneById($id);
-        // $films = $manFilm->findByGenre($id);
+        $films = $manFilm->findFilmsByGenre($id);
 
         return [
             "view" => "Genre/detailGenre.php",
             "data" => [
                 "genre" => $genre,
+                "films" => $films,
             ],
             "titrepage" => "Détail genre"
         ];
@@ -54,14 +56,12 @@ class GenreController{
                 $manGenre = new GenreManager();
                 $manGenre->addGenre($libelleGenre);
 
-                // Session::addFlash("sucess", "Nouveau genre ajouté avec succès !");
-
-                // Router::redirectTo("genre", "allGenres");
-            // }else{
-            //     Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
+                Session::addFlash("sucess", "Nouveau genre ajouté avec succès !");
+                Router::redirectTo("genre", "allGenres");
+            }else{
+                Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
             }
-
-            // Router::redirectTo("home", "index");
+            Router::redirectTo("home", "index");
         }
     }
 }

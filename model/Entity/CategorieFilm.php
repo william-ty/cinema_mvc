@@ -6,8 +6,8 @@
 
     class CategorieFilm extends AbstractEntity {
 
-        private $genre_id;
-        private $film_id;
+        private $genre;
+        private $film;
 
         public function __construct($date){
             parent::hydrate($date, $this);
@@ -54,7 +54,7 @@
         }
 
         // public function __toString(){
-        //     return $this->libelleGenre;
+        //     return $this->genre." ".$this->film;
         // }
     }
 

@@ -31,6 +31,15 @@ class GenreManager extends AbstractManager{
         );
     }
 
+    public function findByFilm($id){
+        $sql = "SELECT *
+                    FROM categorie_film
+                    WHERE film_id = :id";
+        return self::getResults(
+            self::select($sql, ["id" => $id], true), "Model\Entity\GenreFilm"
+        );
+    }
+
     public function addGenre($libelleGenre){
         $sql = "INSERT INTO genre (libelleGenre)
                     VALUES (:libelleGenre)";

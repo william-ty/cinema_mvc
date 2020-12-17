@@ -3,6 +3,8 @@
 namespace Controller;
 
 use Model\Manager\FilmManager;
+use Model\Manager\RealisateurManager;
+use Model\Manager\GenreManager;
 
 
 class FilmController{
@@ -26,15 +28,38 @@ class FilmController{
         $manFilm = new FilmManager();
 
         $film = $manFilm->findOneById($id);
-        $realisateurs = $manFilm->findRealisateur($id);
+        // $realisateurs = $manFilm->findRealisateur($id);
 
         return [
             "view" => "Film/detailFilm.php",
             "data" => [
                 "film" => $film,
-                "realisateur" => $realisateurs,
+                // "realisateur" => $realisateurs,
             ],
             "titrepage" => "Détail film"
         ];
     }
+
+    public function newFilm(){
+
+        $manRealisateur = new RealisateurManager();
+        $realisateurs = $manRealisateur->findAll();
+        $manGenre = new GenreManager();
+        $genres = $manGenre->findAll();
+
+        return [
+            "view" => "Film/newFilm.php",
+            "data" => [
+                "realisateurs" => $realisateurs,
+                "genres" => $genres
+            ],
+            "titrepage" => "Ajouter un film"
+        ];
+    }
+
+    // public function addFilm(){
+    //     if(!empty($_POST)){
+    //         $
+    //     }
+    // }
 }

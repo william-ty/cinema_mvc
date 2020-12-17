@@ -27,7 +27,7 @@ body {
     margin: 1em;
 }
 #wrapper {
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(255, 255, 255);
     max-width: 98%;
     margin: 1em;
 }
@@ -126,10 +126,12 @@ th{
     border-top: solid black 4px;
     border-bottom: solid black 4px;
     text-transform: uppercase;
+    background-color: rgb(214, 214, 214);
 }
 
 td{
     border: black solid 1px;
+    background-color: rgb(240, 239, 239);
 }
 td a{
     text-decoration: none;
@@ -154,4 +156,9 @@ td a{
 }
 .proceed{
     background-color:  rgb(207, 107, 40);
+}
+.fields{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
 }

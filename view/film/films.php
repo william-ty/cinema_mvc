@@ -11,6 +11,7 @@
         <tr>
             <th>Titre</th>
             <th>Année</th>
+            <th>Genre</th>
             <th>Durée</th>
             <th>Realisateur</th>
             <th>Note</th>
@@ -22,6 +23,7 @@
                 <tr>
                     <td><a href="index.php?ctrl=film&method=detailFilm&id=<?= $film->getId() ?>"<?= $film ?>"><?= $film ?></a></td>
                     <td><?= $film->getAnnee() ?></td>
+                    <td><?= $film->getDuree() ?></td>
                     <td><?= $film->getDuree() ?></td>
                     <td><?= $film->getDuree() ?></td>
                     <td><?= $film->getNote() ?></td>

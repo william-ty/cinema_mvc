@@ -47,5 +47,27 @@ class ActeurController{
         ];
     }
 
+        public function addActeur() {
+        if(!empty($_POST)){
+
+            $prenomActeur = filter_input(INPUT_POST, "prenomActeur", FILTER_SANITIZE_STRING);
+            $nomActeur = filter_input(INPUT_POST, "nomActeur", FILTER_SANITIZE_STRING);
+            $dateNaissance = filter_input(INPUT_POST, "dateNaissance", FILTER_SANITIZE_STRING);
+            $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_STRING);
+
+
+
+            if($nomActeur && $prenomActeur && $dateNaissance && $sexe){
+                $manActeur = new ActeurManager();
+                $manActeur->addActeur($nomActeur, $prenomActeur, $dateNaissance, $sexe);
+
+                Session::addFlash("success", "Nouvel acteur ajouté avec succès !");
+                Router::redirectTo("acteur", "allActeur");
+            } else {
+                Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
+            }
+            Router::redirectTo("home");
+        }     
+    }
 }
 

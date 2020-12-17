@@ -1,6 +1,7 @@
 <h2>Nouveau Genre</h2>
 
 <a class="linkbutton proceed" href="index.php?ctrl=genre&method=allGenres">Retour à la liste des genres</a>
+
 <form action="index.php?ctrl=genre&method=addGenre" method="POST">
     <p>
         <label for="libelleGenre">Nom du genre</label>
