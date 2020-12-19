@@ -29,7 +29,6 @@
                     <a href="?ctrl=acteur&method=allActeurs">Acteurs</a>
                     <a href="?ctrl=realisateur&method=allRealisateurs">Realisateurs</a>
                     <a href="?ctrl=role&method=allRoles">Rôles</a>
-                    <a href="?ctrl=casting&method=allCastings">Castings</a>
                     <a href="?ctrl=trailer&method=allTrailers">Trailers</a>
                 </nav>
                 <div id="gestion">

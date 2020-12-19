@@ -31,8 +31,8 @@ class FilmManager extends AbstractManager{
         );
     }
 
-    // récupère la liste films par genre
-    public function findFilmsByGenre($id){
+    // récupère la liste films par realisateur
+    public function findFilmsByRea($id){
         $sql = "SELECT *
                 FROM film
                 WHERE realisateur_id = :id";
@@ -41,5 +41,11 @@ class FilmManager extends AbstractManager{
             self::select($sql, ["id" => $id], true),
             self::$className
         );
+    }
+
+    public function addFilm($titre, $realisateur, $duree, $dateSortie, $note, $synopsys, $affiche){
+        $sql = "INSERT INTO film (titre, realisateur_id, duree, dateSortie, note, synopsys, affiche)
+                VALUES (:titre, :realisateur_id, :duree, :dateSortie, :note, :synopsys, :affiche)";
+        return self::create($sql, ["titre"=>$titre, "realisateur_id"=>$realisateur, "duree"=>$duree, "dateSortie"=>$dateSortie, "note"=>$note, "synopsys"=>$synopsys, "affiche"=>$affiche]);
     }
 }

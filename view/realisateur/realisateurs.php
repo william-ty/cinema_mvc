@@ -1,12 +1,10 @@
 <?php  
     $realisateurs = $data ["realisateurs"];
-    // var_dump($realisateurs);
-
 ?>
 
-<h2>Liste des realisateurs</h2>
-
 <a class="linkbutton proceed" href="?ctrl=realisateur&method=newRealisateur">Ajouter un realisateur</a>
+
+<h2>Liste des realisateurs</h2>
 
 <table>
     <thead>

@@ -27,9 +27,14 @@ class RealisateurManager extends AbstractManager{
 
         return self::getOneOrNullResult(
             self::select($sql, ["id" => $id], false),
-
              // select($sql, $params = null, $multiple = true
             self::$className
         );
+    }
+
+    public function addRealisateur($prenomRealisateur, $nomRealisateur, $dateNaissance, $sexe){
+        $sql = "INSERT INTO Realisateur (prenomRealisateur, nomRealisateur, dateNaissance, sexe)
+                    VALUES (:prenomRealisateur, :nomRealisateur, :dateNaissance, :sexe)";
+        return self::create($sql, ["prenomRealisateur"=>$prenomRealisateur, "nomRealisateur"=>$nomRealisateur, "dateNaissance"=>$dateNaissance, "sexe"=>$sexe]);
     }
 }

@@ -4,6 +4,8 @@ namespace Controller;
 
 use Model\Manager\GenreManager;
 use Model\Manager\FilmManager;
+use App\Session;
+use App\Router;
 
 
 class GenreController{

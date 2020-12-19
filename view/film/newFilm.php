@@ -37,16 +37,23 @@
             <input type="text" name="duree" id="duree" required>
         </p>
         <p>
-            <label for="date">Date de sortie</label>
-            <input type="date" name="date" id="date" required>
+            <label for="dateSortie">Date de sortie</label>
+            <input type="date" name="dateSortie" id="dateSortie" required>
+        </p>
+        <p>
+            <label for="affiche">Affiche</label>
+            <input type="text" name="affiche" id="affiche" required>
         </p>
         <p>
             <label for="note">Note</label>
             <input type="number" name="note" id="note" required>
         </p>
-        <label for="synopsys">Synopsys</label>
-        <input type="synopsys" name="synopsys" id="synopsys" required>
+        <p>
+            <label for="synopsys">Synopsys</label>
+            <input type="synopsys" name="synopsys" id="synopsys" required>
+        </p>
     </div>
+
     <p>
         <a class="linkbutton cancel" href="?ctrl=film&method=allFilms">Annuler</a>
         <input class="linkbutton proceed" type="submit" value="valider">

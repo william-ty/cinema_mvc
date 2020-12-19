@@ -1,6 +1,7 @@
+<a class="linkbutton proceed" href="index.php?ctrl=acteur&method=allActeurs">Retour à la liste des acteurs</a>
+
 <h2>Nouvel Acteur</h2>
 
-<a class="linkbutton proceed" href="index.php?ctrl=acteur&method=allActeurs">Retour à la liste des acteurs</a>
 <form action="index.php?ctrl=acteur&method=addActeur" method="POST">
     <div>
         <p class="fields">
@@ -12,16 +13,16 @@
             <input type="date" name="dateNaissance" id="dateNaissance" required>
             <span>Sexe:</span>
             <div>
-                <input type="radio" name="sexe" id="homme" required>
-                <label for="sexe">H</label>
+                <input type="radio" name="sexe" id="homme" required value="H">
+                <label for="sexe">Homme</label>
             </div>
             <div>
-                <input type="radio" name="sexe" id="femme" required>
-                <label for="sexe">F</label>
+                <input type="radio" name="sexe" id="femme" required value="F">
+                <label for="sexe">Femme</label>
             </div>
             <div>
-                <input type="radio" name="sexe" id="autre" required>
-                <label for="sexe">A</label>
+                <input type="radio" name="sexe" id="autre" required value="A">
+                <label for="sexe">Autre</label>
             </div>
         </p>
     </div>

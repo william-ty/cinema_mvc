@@ -8,6 +8,7 @@
 
         private $id;
         private $libelleGenre;
+        private $nbFilm; // non mappé
 
         public function __construct($date){
             parent::hydrate($date, $this);

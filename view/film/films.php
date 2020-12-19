@@ -1,10 +1,11 @@
 <?php  
     $films = $data ["films"];
+    // $castings = $data ["castings"];
 ?>
 
-<h2>Liste des films</h2>
-
 <a class="linkbutton proceed" href="?ctrl=film&method=newFilm">Ajouter un film</a>
+
+<h2>Liste des films</h2>
 
 <table>
     <thead>
@@ -22,10 +23,10 @@
         foreach ($films as $film) { ?>
                 <tr>
                     <td><a href="index.php?ctrl=film&method=detailFilm&id=<?= $film->getId() ?>"<?= $film ?>"><?= $film ?></a></td>
-                    <td><?= $film->getAnnee() ?></td>
+                    <td><?= $film->getDateSortie() ?></td>
+                    <td><a href="?ctrl=genre&method=detailGenre&id=<?= $film->getRealisateur()->getId() ?>"><?= $film->getRealisateur() ?></a></td>
                     <td><?= $film->getDuree() ?></td>
-                    <td><?= $film->getDuree() ?></td>
-                    <td><?= $film->getDuree() ?></td>
+                    <td><a href="?ctrl=realisateur&method=detailRealisateur&id=<?= $film->getRealisateur()->getId() ?>"><?= $film->getRealisateur() ?></a></td>
                     <td><?= $film->getNote() ?></td>
                 </tr>
          <?php }

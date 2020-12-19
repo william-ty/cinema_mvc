@@ -32,4 +32,10 @@ class RoleManager extends AbstractManager{
             self::$className
         );
     }
+
+    public function addRole($nomRole){
+        $sql = "INSERT INTO role (nomRole)
+                    VALUES (:nomRole)";
+        return self::create($sql, ["nomRole" => $nomRole]);
+    }
 }

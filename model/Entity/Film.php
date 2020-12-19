@@ -8,11 +8,12 @@
 
         private $id;
         private $titre;
-        private $annee;
+        private $dateSortie;
         private $duree;
         private $synopsys;
         private $note;
         private $affiche;
+        private $realisateur;
         
         public function __construct($date){
             parent::hydrate($date, $this);
@@ -60,21 +61,21 @@
         }
 
         /**
-         * Get the value of annee
+         * Get the value of dateSortie
          */ 
-        public function getAnnee()
+        public function getDateSortie()
         {
-                return $this->annee;
+                return $this->dateSortie;
         }
 
         /**
-         * Set the value of annee
+         * Set the value of dateSortie
          *
          * @return  self
          */ 
-        public function setAnnee($annee)
+        public function setDateSortie($dateSortie)
         {
-                $this->annee = $annee;
+                $this->dateSortie = $dateSortie;
 
                 return $this;
         }
@@ -155,6 +156,26 @@
         public function setAffiche($affiche)
         {
                 $this->affiche = $affiche;
+
+                return $this;
+        }
+                /**
+         * Get the value of realisateur
+         */ 
+
+        public function getRealisateur()
+        {
+                return $this->realisateur;
+        }
+
+        /**
+         * Set the value of realisateur
+         *
+         * @return  self
+         */ 
+        public function setRealisateur($realisateur)
+        {
+                $this->realisateur = $realisateur;
 
                 return $this;
         }

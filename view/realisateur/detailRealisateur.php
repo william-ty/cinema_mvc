@@ -2,14 +2,10 @@
     $realisateur = $data["realisateur"];
 ?>
 
-
-<h2><?= $realisateur ?></h2>
-
 <a class="linkbutton proceed" href="index.php?ctrl=realisateur&method=allRealisateurs">Retour à la liste des realisateurs</a>
 <a class="linkbutton proceed" href="?ctrl=realisateur&method=newRealisateur">Ajouter un realisateur</a>
 
-
-
+<h2><?= $realisateur ?></h2>
 
 <p>
     <table>

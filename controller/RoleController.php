@@ -3,7 +3,8 @@
 namespace Controller;
 
 use Model\Manager\RoleManager;
-
+use App\Session;
+use App\Router;
 
 class RoleController{
 
@@ -34,5 +35,31 @@ class RoleController{
             ],
             "titrepage" => "Détail role"
         ];
+    }
+
+    public function newRole(){
+
+        return [
+            "view" => "Role/newRole.php",
+            "titrepage" => "Ajouter un role"
+        ];
+    }
+
+    public function addRole(){
+        if(!empty($_POST)){
+
+            $nomRole = filter_input(INPUT_POST, "nomRole", FILTER_SANITIZE_STRING);
+            
+            if($nomRole){
+                $manRole = new RoleManager();
+                $manRole->addRole($nomRole);
+                
+                Session::addFlash("sucess", "Nouveau role ajouté avec succès !");
+                Router::redirectTo("role", "allRoles");
+            }else{
+                Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
+            }
+            Router::redirectTo("home", "index");
+        }
     }
 }

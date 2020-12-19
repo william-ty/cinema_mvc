@@ -5,6 +5,7 @@
 
 <h2>Liste des roles</h2>
 <a class="linkbutton proceed" href="?ctrl=role&method=newRole">Ajouter un role</a>
+<a class="linkbutton proceed" href="?ctrl=casting&method=newCasting">Ajouter un casting</a>
 
 <table>
     <thead>

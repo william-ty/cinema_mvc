@@ -3,9 +3,9 @@
     // var_dump($genres);
 
 ?>
+<a class="linkbutton proceed" href="?ctrl=genre&method=newGenre">Ajouter un genre</a>
 
 <h2>Liste des genres</h2>
-<a class="linkbutton proceed" href="?ctrl=genre&method=newGenre">Ajouter un genre</a>
 
 <table>
     <thead>
