@@ -95,4 +95,11 @@ class FilmController{
             Router::redirectTo("home");
         }
     }
+
+    public function deleteFilm($id){
+        $manFilm = new FilmManager();
+        $film = $manFilm->findOneById($id);
+        $manFilm->deleteFilm($id);
+        Router::redirectTo("film", "allFilms");
+    }
 }

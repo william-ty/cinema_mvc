@@ -16,6 +16,7 @@
             <th>Durée</th>
             <th>Realisateur</th>
             <th>Note</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -24,10 +25,17 @@
                 <tr>
                     <td><a href="index.php?ctrl=film&method=detailFilm&id=<?= $film->getId() ?>"<?= $film ?>"><?= $film ?></a></td>
                     <td><?= $film->getDateSortie() ?></td>
-                    <td><a href="?ctrl=genre&method=detailGenre&id=<?= $film->getRealisateur()->getId() ?>"><?= $film->getRealisateur() ?></a></td>
+                    <td><a href="?ctrl=genre&method=detailGenre&id=<?php ?>">Test</a></td>
                     <td><?= $film->getDuree() ?></td>
-                    <td><a href="?ctrl=realisateur&method=detailRealisateur&id=<?= $film->getRealisateur()->getId() ?>"><?= $film->getRealisateur() ?></a></td>
+                    <td>
+                        <?php if($film->getRealisateur() == null){
+                            echo "Réalisateur non défini";
+                        }else{ ?>
+                            <a href="?ctrl=realisateur&method=detailRealisateur&id=<?= $film->getRealisateur()->getId()?>"><?= $film->getRealisateur() ?></a>
+                        <?php } ?>
+                    </td>
                     <td><?= $film->getNote() ?></td>
+                    <td><a href="index.php?ctrl=film&method=deleteFilm&id=<?= $film->getId() ?>"><i class="fas fa-trash"></i></a></td>
                 </tr>
          <?php }
     ?>

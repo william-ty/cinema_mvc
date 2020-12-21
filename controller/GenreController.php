@@ -66,4 +66,42 @@ class GenreController{
             Router::redirectTo("home", "index");
         }
     }
+    
+    public function deleteGenre($id){
+        $manGenre = new GenreManager();
+        $genre = $manGenre->findOneById($id);
+        $manGenre->deleteGenre($id);
+        Router::redirectTo("genre", "allGenres");
+    }
+
+    public function editGenre($id){
+        $manGenre = new GenreManager();
+        $genre = $manGenre->findOneById($id);
+
+        return [
+            "view" => "genre/editGenre.php",
+            "data" => [
+                "genre" => $genre,
+            ],
+            "titrepage" => "Modifier le genre"
+        ];
+    }
+
+    public function updateGenre($id){
+        if(!empty($_POST)){
+
+            $libelleGenre = filter_input(INPUT_POST, "libelleGenre", FILTER_SANITIZE_STRING);
+
+            if($libelleGenre){
+                $manGenre = new GenreManager();
+                $manGenre->updateGenre($id, $libelleGenre);
+
+                Session::addFlash("success", "Genre modifié avec succès !");
+                Router::redirectTo("genre", "allGenres");
+            } else {
+                Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
+            }
+            Router::redirectTo("home");
+        }     
+    }
 }

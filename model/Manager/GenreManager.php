@@ -45,4 +45,17 @@ class GenreManager extends AbstractManager{
                     VALUES (:libelleGenre)";
         return self::create($sql, ["libelleGenre" => $libelleGenre]);
     }
+
+    public function deleteGenre($id){
+        $sql = "DELETE FROM genre WHERE id = :id";
+        return self::getOneOrNullResult(
+            self::delete($sql, ["id" => $id], false),
+            self::$className
+        );
+    }
+
+    public function updateGenre($id, $libelleGenre){
+        $sql = "UPDATE genre SET libelleGenre = :libelleGenre WHERE id = :id";
+        self::update($sql, ["id"=>$id, "libelleGenre"=>$libelleGenre]);
+    }
 }

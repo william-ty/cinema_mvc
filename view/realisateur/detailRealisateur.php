@@ -15,13 +15,15 @@
                 <th>Prénom</th>
                 <th>Date de naissance</th>
                 <th>Sexe</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <?="<tr><td>".$realisateur->getNomRealisateur()."</td>";?>
             <?="<td>".$realisateur->getPrenomRealisateur()."</td>";?>
             <?="<td>".$realisateur->getDateNaissance()."</td>";?>
-            <?="<td>".$realisateur->getSexe()."</td></tr>";?>
+            <?="<td>".$realisateur->getSexe()."</td>";?>
+            <td><a href="index.php?ctrl=realisateur&method=deleteRealisateur&id=<?= $realisateur->getId() ?>"><i class="fas fa-trash"></i></a></td></tr>
         </tbody>
     </table>
 </p>

@@ -19,6 +19,8 @@
                 <th>Note</th>
                 <th>Synopsys</th>
                 <th>Affiche</th>
+                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -28,7 +30,8 @@
             <td><?= $films->getDuree() ?></td>
             <td><?= $films->getNote() ?></td>
             <td><?= $films->getSynopsys() ?></td>
-            <td><?= $films->getAffiche() ?></td></tr>
+            <td><?= $films->getAffiche() ?></td>
+            <td><a href="index.php?ctrl=film&method=deleteFilm&id=<?= $film->getId() ?>"><i class="fas fa-trash"></i></a></td></tr>
         </tbody>
     </table>
 </p>

@@ -38,4 +38,14 @@ class RoleManager extends AbstractManager{
                     VALUES (:nomRole)";
         return self::create($sql, ["nomRole" => $nomRole]);
     }
+
+    public function deleteRole($id){
+        $sql = "DELETE FROM role WHERE id = :id";
+            self::delete($sql, ["id" => $id]);    
+    }
+
+    public function updateRole($id, $nomRole){
+        $sql = "UPDATE role SET nomRole = :nomRole WHERE id = :id";
+        self::update($sql, ["id"=>$id, "nomRole"=>$nomRole]);
+    }
 }

@@ -62,4 +62,42 @@ class RoleController{
             Router::redirectTo("home", "index");
         }
     }
+
+    public function deleteRole($id){
+        $manRole = new RoleManager();
+        $role = $manRole->findOneById($id);
+        $manRole->deleteRole($id);
+        Router::redirectTo("role", "allRoles");
+    }
+
+    public function editRole($id){
+        $manRole = new RoleManager();
+        $role = $manRole->findOneById($id);
+
+        return [
+            "view" => "role/editRole.php",
+            "data" => [
+                "role" => $role,
+            ],
+            "titrepage" => "Modifier le role"
+        ];
+    }
+
+    public function updateRole($id){
+        if(!empty($_POST)){
+
+            $nomRole = filter_input(INPUT_POST, "nomRole", FILTER_SANITIZE_STRING);
+
+            if($nomRole){
+                $manRole = new RoleManager();
+                $manRole->updateRole($id, $nomRole);
+
+                Session::addFlash("success", "Role modifié avec succès !");
+                Router::redirectTo("role", "allRoles");
+            } else {
+                Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
+            }
+            Router::redirectTo("home");
+        }     
+    }
 }

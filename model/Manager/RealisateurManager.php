@@ -37,4 +37,13 @@ class RealisateurManager extends AbstractManager{
                     VALUES (:prenomRealisateur, :nomRealisateur, :dateNaissance, :sexe)";
         return self::create($sql, ["prenomRealisateur"=>$prenomRealisateur, "nomRealisateur"=>$nomRealisateur, "dateNaissance"=>$dateNaissance, "sexe"=>$sexe]);
     }
+
+    public function deleteRealisateur($id){
+        $sqlUpdate = "UPDATE film SET realisateur_id = null WHERE id = :id";
+        $sqlDelete = "DELETE FROM realisateur WHERE id = :id";
+            self::update($sqlUpdate, ["id" => $id]);
+            self::delete($sqlDelete, ["id" => $id]);
+    }
+    
+    
 }

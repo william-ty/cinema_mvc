@@ -12,6 +12,7 @@
             <th>Realisateur</th>
             <th>Date de naissance</th>
             <th>Sexe</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,14 @@
                     <td><a href="index.php?ctrl=realisateur&method=detailRealisateur&id=<?= $realisateur->getId() ?>"<?= $realisateur ?>"><?= $realisateur?></a></td>
                     <td><?= $realisateur->getDateNaissance() ?></td>
                     <td><?= $realisateur->getSexe() ?></td>
+                    <td>
+                        <a href="index.php?ctrl=realisateur&method=editRealisateur&id=<?= $realisateur->getId() ?>">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="index.php?ctrl=realisateur&method=deleteRealisateur&id=<?= $realisateur->getId() ?>">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
                 </tr>
          <?php }
     ?>

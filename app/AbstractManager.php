@@ -27,7 +27,7 @@
             }
             return $results;
         }
-
+        
         protected function getSingleScalarResult($row){
 
             if($row != null){

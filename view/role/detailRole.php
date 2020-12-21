@@ -13,11 +13,15 @@
             <tr>
                 <th>Rôle</th>
                 <th>Acteur</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?="<tr><td>".$role->getNomRole()."</td>";?>
-            <?="<td>".$role."</td>";?>
+            <td>
+                <a href="index.php?ctrl=role&method=editRole&id=<?= $role->getId() ?>"><i class="fas fa-edit"></i></a>
+                <a href="index.php?ctrl=role&method=deleteRole&id=<?= $role->getId() ?>"><i class="fas fa-trash"></i></a>
+            </td>
         </tbody>
     </table>
 </p>

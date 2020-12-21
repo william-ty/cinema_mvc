@@ -13,6 +13,7 @@
         <thead>
             <tr>
                 <th>Titre</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,10 @@
                     <tr>
                         <td>
                             <?=$film->getTitre();?>
+                            <td>
+                                <a href="index.php?ctrl=role&method=editRole&id=<?= $role->getId() ?>"><i class="fas fa-edit"></i></a>
+                                <a href="index.php?ctrl=role&method=deleteRole&id=<?= $role->getId() ?>"><i class="fas fa-trash"></i></a>
+                            </td>
                         </td>
                     </tr>
 

@@ -12,7 +12,7 @@
         <tr>
             <th>Rôle</th>
             <!-- <th>NB FILMS</th> -->
-            <th>DELETE</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +22,14 @@
                     <td><a href="index.php?ctrl=role&method=detailrole&id=<?= $role->getId() ?>"><?= $role?></a></td>
                     <!-- <td>
                     <?php // $role->getNbFilms() ?></td> -->
-                    <td><a href="">DELETE</a></td>
+                    <td>
+                        <a href="index.php?ctrl=role&method=editRole&id=<?= $role->getId() ?>">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="index.php?ctrl=role&method=deleteRole&id=<?= $role->getId() ?>">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
                 </tr>
          <?php }
     ?>

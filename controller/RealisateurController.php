@@ -65,4 +65,45 @@ class RealisateurController{
             Router::redirectTo("home");
         }     
     }
+
+    public function deleteRealisateur($id){
+        $manRealisateur = new RealisateurManager();
+        $realisateur = $manRealisateur->findOneById($id);
+        $manRealisateur->deleteRealisateur($id);
+        Router::redirectTo("realisateur", "allRealisateurs");
+    }
+
+    public function editRealisateur($id){
+        $manRealisateur = new RealisateurManager();
+        $realisateur = $manRealisateur->findOneById($id);
+
+        return [
+            "view" => "Realisateur/editRealisateur.php",
+            "data" => [
+                "realisateur" => $realisateur,
+            ],
+            "titrepage" => "Modifier le realisateur"
+        ];
+    }
+
+    public function updateRealisateur(){
+        if(!empty($_POST)){
+
+            $prenomRealisateur = filter_input(INPUT_POST, "prenomRealisateur", FILTER_SANITIZE_STRING);
+            $nomRealisateur = filter_input(INPUT_POST, "nomRealisateur", FILTER_SANITIZE_STRING);
+            $dateNaissance = filter_input(INPUT_POST, "dateNaissance", FILTER_SANITIZE_STRING);
+            $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_STRING);
+
+            if($nomRealisateur && $prenomRealisateur && $dateNaissance && $sexe){
+                $manRealisateur = new RealisateurManager();
+                $manRealisateur->updateRealisateur($nomRealisateur, $prenomRealisateur, $dateNaissance, $sexe);
+
+                Session::addFlash("success", "Realisateur modifié avec succès !");
+                Router::redirectTo("realisateur", "allRealisateurs");
+            } else {
+                Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
+            }
+            Router::redirectTo("home");
+        }     
+    }
 }

@@ -12,7 +12,7 @@
         <tr>
             <th>Genre</th>
             <!-- <th>NB FILMS</th> -->
-            <th>Supprimer</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +22,10 @@
                     <td><a href="index.php?ctrl=genre&method=detailGenre&id=<?= $genre->getId() ?>"><?= $genre?></a></td>
                     <!-- <td>
                     <?php // $genre->getNbFilms() ?></td> -->
-                    <td><a href="">DELETE</a></td>
+                    <td>
+                        <a href="index.php?ctrl=genre&method=editGenre&id=<?= $genre->getId() ?>"><i class="fas fa-edit"></i></a>
+                        <a href="index.php?ctrl=genre&method=deleteGenre&id=<?= $genre->getId() ?>"><i class="fas fa-trash"></i></a>
+                    </td>
                 </tr>
          <?php }
     ?>

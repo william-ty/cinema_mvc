@@ -37,4 +37,15 @@ class ActeurManager extends AbstractManager{
                     VALUES (:prenomActeur, :nomActeur, :dateNaissance, :sexe)";
         return self::create($sql, ["prenomActeur"=>$prenomActeur, "nomActeur"=>$nomActeur, "dateNaissance"=>$dateNaissance, "sexe"=>$sexe]);
     }
+
+    public function deleteActeur($id){
+        $sql = "DELETE FROM acteur WHERE id = :id";
+            self::delete($sql, ["id" => $id]);  
+    }
+
+    public function updateActeur($prenomActeur, $nomActeur, $dateNaissance, $sexe){
+        $sql = "UPDATE FROM acteur
+                    SET prenomActeur = :prenomActeur, nomActeur = :nomActeur, dateNaissance = :dateNaissance, sexe = :sexe)";
+        return self::update($sql, ["prenomActeur"=>$prenomActeur, "nomActeur"=>$nomActeur, "dateNaissance"=>$dateNaissance, "sexe"=>$sexe], true);
+    }
 }

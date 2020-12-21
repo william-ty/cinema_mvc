@@ -48,4 +48,9 @@ class FilmManager extends AbstractManager{
                 VALUES (:titre, :realisateur_id, :duree, :dateSortie, :note, :synopsys, :affiche)";
         return self::create($sql, ["titre"=>$titre, "realisateur_id"=>$realisateur, "duree"=>$duree, "dateSortie"=>$dateSortie, "note"=>$note, "synopsys"=>$synopsys, "affiche"=>$affiche]);
     }
+
+    public function deleteFilm($id){
+        $sql = "DELETE FROM film WHERE id = :id";
+            self::delete($sql, ["id" => $id]);    
+    }
 }

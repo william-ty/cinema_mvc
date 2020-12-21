@@ -31,13 +31,13 @@ class CastingManager extends AbstractManager{
         );
     }
     
-    public function addCasting($acteurs, $role, $films){
+    public function addCasting($acteur, $role, $film){
         $sql = "INSERT INTO casting (acteur_id, role_id, film_id)
-                    VALUES (:films, :acteurs, :roles)";
+                    VALUES (:acteur, :role, :film)";
         return self::create($sql, [
-                "acteurs"=>$acteurs,
+                "acteur"=>$acteur,
                 "role"=>$role,
-                "films"=>$films
+                "film"=>$film
             ]);
     }
 

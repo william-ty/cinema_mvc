@@ -35,17 +35,17 @@ class CastingController{
     public function addCasting(){
         if(!empty($_POST)){
 
-            $films = filter_input(INPUT_POST, "films", FILTER_SANITIZE_STRING);
-            $acteurs = filter_input(INPUT_POST, "acteurs", FILTER_SANITIZE_STRING);
-            $roles = filter_input(INPUT_POST, "roles", FILTER_SANITIZE_STRING);
+            $acteur = filter_input(INPUT_POST, "acteur", FILTER_SANITIZE_STRING);
+            $role = filter_input(INPUT_POST, "role", FILTER_SANITIZE_STRING);
+            $film = filter_input(INPUT_POST, "film", FILTER_SANITIZE_STRING);
 
-            if($films && $acteurs && $roles){
+            if($acteur && $role && $film){
 
                 $manCasting = new CastingManager();
-                $manCasting->addCasting($films, $acteurs, $roles);
+                $manCasting->addCasting($acteur, $role, $film);
 
-                Session::addFlash("sucess", "Nouveau genre ajouté avec succès !");
-                Router::redirectTo("genre", "allGenres");
+                Session::addFlash("sucess", "Nouveau casting ajouté avec succès !");
+                Router::redirectTo("role", "allRoles");
             }else{
                 Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
             }
