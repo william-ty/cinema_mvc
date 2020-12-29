@@ -102,4 +102,44 @@ class FilmController{
         $manFilm->deleteFilm($id);
         Router::redirectTo("film", "allFilms");
     }
+
+    public function editFilm($id){
+        $manFilm = new FilmManager();
+        $film = $manFilm->findOneById($id);
+        $manRealisateur = new RealisateurManager();
+        $realisateurs = $manRealisateur->findAll();
+        $manGenre = new GenreManager();
+        $genres = $manGenre->findAll();
+
+        return [
+            "view" => "Film/editFilm.php",
+            "data" => [
+                "film" => $film,
+                "realisateurs" => $realisateurs,
+                "genres" => $genres,
+            ],
+            "titrepage" => "Modifier le film"
+        ];
+    }
+
+    public function updateFilm(){
+        if(!empty($_POST)){
+
+            $prenomFilm = filter_input(INPUT_POST, "prenomFilm", FILTER_SANITIZE_STRING);
+            $nomFilm = filter_input(INPUT_POST, "nomFilm", FILTER_SANITIZE_STRING);
+            $dateNaissance = filter_input(INPUT_POST, "dateNaissance", FILTER_SANITIZE_STRING);
+            $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_STRING);
+
+            if($nomFilm && $prenomFilm && $dateNaissance && $sexe){
+                $manFilm = new FilmManager();
+                $manFilm->updateFilm($nomFilm, $prenomFilm, $dateNaissance, $sexe);
+
+                Session::addFlash("success", "Film modifié avec succès !");
+                Router::redirectTo("film", "allFilms");
+            } else {
+                Session::addFlash("error", "Un problème est survenu, veuillez réessayer.");
+            }
+            Router::redirectTo("home");
+        }     
+    }
 }

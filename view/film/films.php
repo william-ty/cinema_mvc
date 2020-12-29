@@ -35,7 +35,11 @@
                         <?php } ?>
                     </td>
                     <td><?= $film->getNote() ?></td>
-                    <td><a href="index.php?ctrl=film&method=deleteFilm&id=<?= $film->getId() ?>"><i class="fas fa-trash"></i></a></td>
+                    <td>
+                        <a href="index.php?ctrl=film&method=deleteFilm&id=<?= $film->getId() ?>"><i class="fas fa-trash"></i></a>
+                        <a href="index.php?ctrl=film&method=editFilm&id=<?= $film->getId() ?>"><i class="fas fa-edit"></i></a>
+
+                    </td>
                 </tr>
          <?php }
     ?>

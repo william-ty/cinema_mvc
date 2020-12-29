@@ -2,10 +2,10 @@
     $role = $data["role"];
 ?>
 
-<h2><?= $role ?></h2>
-
 <a class="linkbutton proceed" href="index.php?ctrl=role&method=allRoles">Retour à la liste des roles</a>
 <a class="linkbutton proceed" href="?ctrl=role&method=newRole">Ajouter un role</a>
+
+<h2><?= $role ?></h2>
 
 <p>
     <table>

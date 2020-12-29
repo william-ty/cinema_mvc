@@ -5,9 +5,10 @@
     $acteurs = $data["acteurs"];
 ?>
 
+<a class="linkbutton proceed" href="index.php?ctrl=role&method=allRoles">Retour à la liste des rôles</a>
+
 <h2>Nouveau Film</h2>
 
-<a class="linkbutton proceed" href="index.php?ctrl=role&method=allRoles">Retour à la liste des rôles</a>
 <form action="index.php?ctrl=casting&method=addCasting" method="POST">
     <div class="fields">
         <p>

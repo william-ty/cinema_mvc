@@ -1,5 +1,6 @@
 <?php
     $realisateurs = $data["realisateurs"];
+    $realisateurs = $data["realisateurs"];
     $genres = $data["genres"]
 ?>
 
