@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="public/css/datatables2.css">
     <title><?= $result["titrePage"] ?></title>
 
-    
 </head>
 <body>
     <div id="wrapper">
