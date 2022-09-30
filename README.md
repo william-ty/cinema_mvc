@@ -1,2 +1,2 @@
 # cinema_mvc
-Building a good understanding of the MVC design pattern
+Getting a good understanding of the MVC design pattern
